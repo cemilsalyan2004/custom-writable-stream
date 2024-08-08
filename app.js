@@ -59,8 +59,8 @@ class FileWriteStream extends Writable {
   }
 
   _destroy(error, callback) {
-		console.log('destroy invoked')
-    if (!this.fd)
+    console.log('destroy invoked')
+    if (this.fd)
       fs.close(this.fd, (err) => {
         if (err) return callback(err || error);
       });
